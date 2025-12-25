@@ -9,17 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin:0; padding:0; }
 
 body {
-  margin: 0;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(180deg, #7a1f2b 0%, #9b3a4a 50%, #f4e9e3 120%);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
   color: #fff;
   overflow: hidden;
   position: relative;
@@ -52,7 +50,7 @@ body::before {
   to { opacity: 1; transform: scale(1.3); }
 }
 
-/* soft butterflies */
+/* butterflies */
 .butterfly {
   position: fixed;
   left: -50px;
@@ -173,11 +171,33 @@ for(let i=0; i<starCount; i++){
   </div>
 </div>
 
-<!-- Audio -->
-<audio id="christmasAudio" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  <Christmas Medley _ Aenon Choir (Joy to the World, Silent Night, We Wish You a Merry Christmas, etc).mp3->
+<audio id="christmasAudio" loop>
+  <source src="we-wish-you.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+const audio = document.getElementById('christmasAudio');
+
+// show a hint so user knows to tap
+const hint = document.createElement('div');
+hint.textContent = '🎶 Tap anywhere to play music';
+hint.style.position = 'fixed';
+hint.style.top = '40%';
+hint.style.width = '100%';
+hint.style.textAlign = 'center';
+hint.style.fontSize = '18px';
+hint.style.color = '#fff';
+hint.style.opacity = '0.85';
+hint.style.pointerEvents = 'none';
+document.body.appendChild(hint);
+
+document.body.addEventListener('click', function playMusic() {
+    audio.volume = 0.5;
+    audio.play().catch(e => console.log(e)); // catch if still blocked
+    hint.style.display = 'none'; // hide hint
+    document.body.removeEventListener('click', playMusic);
+});
+</script>
 
 </body>
 </html>
