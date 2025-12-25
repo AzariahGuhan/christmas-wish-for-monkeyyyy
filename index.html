@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #7a1f2b 0%, #9b3a4a 50%, #f4e9e3 120%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* subtle festive texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* twinkling stars */
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.3); }
+}
+
+/* soft butterflies */
+.butterfly {
+  position: fixed;
+  left: -50px;
+  font-size: var(--size);
+  top: var(--top);
+  opacity: 0.7;
+  animation: flySoft var(--duration) linear infinite;
+}
+
+@keyframes flySoft {
+  to {
+    left: 110%;
+    transform: translateY(var(--drift));
+  }
+}
+
+/* glass card */
+.card {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  padding: 36px 26px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+  animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tree {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #fff8ef;
+}
+
+.divider {
+  width: 48px;
+  height: 3px;
+  background: rgba(255,255,255,0.8);
+  margin: 12px auto 18px;
+  border-radius: 3px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+  color: #fffdfb;
+}
+
+.highlight {
+  color: #fff1c6;
+  font-weight: 500;
+}
+
+.signature {
+  margin-top: 22px;
+  font-size: 14px;
+  color: #fff3e8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Generate stars -->
+<script>
+const starCount = 50;
+for(let i=0; i<starCount; i++){
+  let star = document.createElement('div');
+  star.className = 'star';
+  star.style.top = Math.random()*100 + 'vh';
+  star.style.left = Math.random()*100 + 'vw';
+  star.style.animationDuration = (Math.random()*2+1) + 's';
+  star.style.width = star.style.height = (Math.random()*2 + 1) + 'px';
+  document.body.appendChild(star);
+}
+</script>
+
+<!-- butterflies -->
+<div class="butterfly" style="--top:30%;--size:24px;--duration:28s;--drift:16px">🦋</div>
+<div class="butterfly" style="--top:65%;--size:28px;--duration:32s;--drift:-18px">🦋</div>
+
+<div class="card">
+  <div class="tree">🎄</div>
+  <h1>Merry Christmas, Zibbiieeeee</h1>
+  <div class="divider"></div>
+
+  <p>
+    Merryyyy Chrismassss mandaaaa monkeyyyy akkaaaa!!!
+    <br><br>
+    Christmas came with lights and calm this year,
+    but honestly… you already bring that into our lives.
+    Smile today. Rest a little.
+    You deserve more joy than you realise.
+  </p>
+
+  <p class="highlight">
+    May your day be full of food you didn’t cook,
+    problems you didn’t solve,
+    and happiness that refuses to leave.
+  </p>
+
+  <div class="signature">
+    🤍 With lovesssss from,<br>
+    Thambieeeeeeeee
+  </div>
+</div>
+
+<!-- Audio -->
+<audio id="christmasAudio" autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <Christmas Medley _ Aenon Choir (Joy to the World, Silent Night, We Wish You a Merry Christmas, etc).mp3->
+</audio>
+
+</body>
+</html>
